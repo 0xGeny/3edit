@@ -1,0 +1,76 @@
+.pageintro {
+  position: relative;
+  overflow: hidden;
+}
+
+.pageintro-overlay {
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 70%;
+  z-index: 10000;
+  position: absolute;
+}
+
+.pageintro-hole {
+  position: absolute;
+  border: 2px solid #579765;
+  border-radius: 4px;
+  box-shadow: 0 0 0 10000px rgba(0, 0, 0, 0.5);
+}
+
+.pageintro-tooltip {
+  width: 320px;
+  padding: 20px;
+  position: absolute;
+  text-align: center;
+  color:#ffffff;
+  background-color: #7db79a;
+  border: 1px solid #888;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  transition: all .5s;
+}
+
+.pageintro-actions {
+  text-align: center;
+}
+
+.pageintro-nav {
+  padding: 0;
+  margin: 10px 0;
+  text-align: center;
+}
+.pageintro-nav li {
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.pageintro-nav li:hover {
+  border-color: #000000;
+  background: #ddd;
+}
+.pageintro-nav li.active {
+  border-color: #000000;
+  background: #000000;
+}
+/* Add appropriate CSS styles for the close button */
+.pageintro-tooltip .btn-close {
+  position: absolute;
+  top: 5; /* Adjust the top value to your desired position */
+  right: 5px; /* Adjust the left value to your desired position */
+  background-color: #18191a; /* Change to your desired button background color */
+  color: #fff; /* Change to your desired button text color */
+  padding: 2px 3px;
+  border: none;
+  cursor: pointer;
+  z-index: 1000; /* Adjust the z-index as needed */
+}
+/* Set a higher z-index for the close button to ensure it appears on top */
+.pageintro-tooltip .btn-close {
+  z-index: 1000; /* Adjust the value as needed */
+}

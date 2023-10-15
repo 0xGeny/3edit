@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>3D mesh fusion</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+    <link href="tour/dist/pageintro.css" rel="stylesheet">
+    <style>
+        #mainDiv {
+            position: absolute;
+             z-index: 10; 
+            left: 10px;
+            top: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: smaller;
+            color: white;
+            padding:1%;
+            margin:0.3%; 
+            width: 600px; 
+            height:300px;
+            zoom: 100%; 
+        } 
+    </style>
+<body>
+
+    <div id="mainDiv">
+        <button onclick="myFunction()" id="step1" type="button" class="btn btn-outline-success">
+            <lord-icon src="https://cdn.lordicon.com/yjnczdgh.json"
+            trigger="loop"
+            delay="2000"
+            colors="primary:#121331,secondary:#e8308c"
+            style="width:30px;height:30px"></lord-icon>
+        </button> Fusion mesh app
+        <div id="menu">
+        <p id="step2">1. Uploads</p>
+        <input type="file" id="model1" accept=".obj" label="Import Model1" type="file" class="form-control-file">
+        <input type="file" id="model2" accept=".obj" label="Import Model2" type="file" class="form-control-file">
+        <hr>
+        <p id="step3">2. Clip models <br> Use the Control UI on the other side to control the clipping planes</p>
+        <button type="button" id="saveClipped1"  type="button" class="btn btn-outline-warning">Save Clipped Mesh1</button>
+        <button type="button" id="saveClipped2" type="button" class="btn btn-outline-warning">Save Clipped Mesh2</button>
+        <!-- <button type="button" id="saveButton"  class="btn btn-outline-danger">Save Clipped Objects</button><hr> -->
+        <!-- this button activates the clipping of the planes -->
+        <hr>
+        <p id="step4">3. Merge</p>
+       
+        <!--  this button enables the merging step by step -->
+
+        <label for="mergeObject1">First mesh:</label>
+        <select id="mergeObject1" type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="true">
+            <option value="0">Object 0</option>
+            <option value="1">Object 1</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <label for="mergeObject2">Last mesh:</label>
+        <select id="mergeObject2" type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="true">
+            <option value="0">Object 0</option>
+            <option value="1">Object 1</option>
+            <!-- Add more options as needed -->
+        </select><br>
+        <button id="mergeButton" type="button" class="btn btn-outline-success">Merge Objects</button><hr>
+        <p id="step5">4. Analyse the perfomance </p>
+        <button id="statsButton" type="button" class="btn btn-outline-danger">Perfomance</button> <hr>
+        <p id="step6">5. Get your model</p>
+
+        <button type="button" id="saveButton"  class="btn btn-outline-primary"> Export</button>
+    </div>
+    </div>
+
+
+    <!-- Add your importmap for ES modules -->
+    <script type="importmap">
+			{
+				"imports": {
+					"three": "../build/three.module.js",
+					"three/addons/": "./jsm/",
+                    "three-mesh-bvh": "https://unpkg.com/three-mesh-bvh@0.6.0/build/index.module.js",
+					"three-bvh-csg": "https://unpkg.com/three-bvh-csg@0.0.7/build/index.module.js"
+				}
+			}
+		</script>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("menu");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="tour/dist/pageintro.js"></script>
+    <script type="module" src="../js/custom/tour.js"></script>
+    <script type="module" src="../js/custom/clip.js"></script>
+    <script type="module" src="../js/custom/merge.js"></script>
+    <script type="module" src="../js/custom/align.js"></script>
+    <!-- <script type="module" src="../js/custom/aligners.js"></script> -->
+    <script type="module" src="../js/custom/calculate.js"></script>
+    <script type="module" src="../js/custom/result.js"></script>
+    <script type="module" src="../js/custom/nearest.js"></script>
+
+</body>
+
+</html>
